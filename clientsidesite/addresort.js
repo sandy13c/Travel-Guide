@@ -3,9 +3,10 @@ var resortadd = new Vue({
  el: '#resortadd',
  data: {
     list:[],
-    resortname:'',
-    country:'',
-    url:''
+    errors:[],
+    resortname:null,
+    country:null,
+    url:null
 
  },
  methods: {
@@ -19,6 +20,17 @@ var resortadd = new Vue({
 
    },
    AdditionalR(a) {
+    this.errors=[];
+     if(!this.resortname) {
+       this.errors.push('Please enter a resort name');
+     }
+     if(!this.country) {
+       this.errors.push('Please enter the country');
+     }
+     if(!this.url) {
+       this.errors.push('Please enter a url');
+     }
+  if(this.resortname && this.country && this.url) {
      axios.post('http://localhost:3100/addlist',{
         resortname: this.resortname,
         country: this.country,
@@ -31,7 +43,10 @@ var resortadd = new Vue({
      this.url ='';
 
 
+ }).catch(error=> {
+   console.log('error: ' + error);
  });
+}
  a.preventDefault();
 },
 Deletemethod(resort_id) {
