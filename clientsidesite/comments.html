@@ -69,6 +69,11 @@
     </nav>
     <div id="section">
       <div class="comments">
+        <p v-if="errors.length">
+         <ul>
+            <li v-for="error in errors">{{error}}</li>
+        </ul>
+        </p>
       <center>
       Comment Number: <input type="text" class="add-search-input" align="right" v-model="newComnum" @keyup.enter="addComment">
       Name: <input type="text" class="add-search-input" align="right" v-model="newName" @keyup.enter="addComment">
@@ -77,7 +82,7 @@
     </center>
       <ol>
         <li v-for="comment in comments" v-bind:key="comment.com_id">
-        {{comment.com_id}}.  {{comment.name}} - {{comment.details}} 
+        {{comment.com_id}}.  {{comment.name}} - {{comment.details}}
         <button class="btn btn-secondary" @click.prevent="deleteComment(comment.com_id)">Delete Comment</button>
         </li>
       </ol>
