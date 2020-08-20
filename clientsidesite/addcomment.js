@@ -32,8 +32,12 @@ window.onload = () => {
             //this.submitting=true;
 
        });
+     },
+      deleteComment(com_id) {
+         axios.delete('http://localhost:3100/comments/'+ com_id).then(() => {
+            this.showComments();
+         });
      }
-
   }
  });
 }
