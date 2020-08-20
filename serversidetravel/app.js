@@ -102,6 +102,15 @@ app.post('/comments/add',(req,res) => {
      }
   });
 });
+app.delete('/comments/:id', (req,res) => {
+  mysqlConnection.query("DELETE FROM commentsection WHERE com_id = ?",[req.params.id],(err,rows) => {
+    if (!err) {
+      res.send('Comment Deleted');
+    } else {
+        console.log(err);
+    }
+  });
+});
 
 
 
