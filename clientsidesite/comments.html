@@ -70,13 +70,15 @@
     <div id="section">
       <div class="comments">
       <center>
+      Comment Number: <input type="text" class="add-search-input" align="right" v-model="newComnum" @keyup.enter="addComment">
       Name: <input type="text" class="add-search-input" align="right" v-model="newName" @keyup.enter="addComment">
       Comment: <input type="text"class="add-search-input" align="right" v-model="newComment" @keyup.enter="addComment"> <br>
       <button class="btn btn-primary" @click="showComments">Show Comments</button>
     </center>
       <ol>
-        <li v-for="comment in comments">
-          {{comment.name}} - {{comment.details}}
+        <li v-for="comment in comments" v-bind:key="comment.com_id">
+        {{comment.com_id}}.  {{comment.name}} - {{comment.details}} 
+        <button class="btn btn-secondary" @click.prevent="deleteComment(comment.com_id)">Delete Comment</button>
         </li>
       </ol>
     </div>
