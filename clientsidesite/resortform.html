@@ -69,6 +69,11 @@
     </nav>
         <div class="modal-body">
               <form id="resortadd" method="post">
+                  <p v-if="errors.length">
+                         <ul>
+                            <li v-for="error in errors">{{error}}</li>
+                         </ul>
+                        </p>
                           <div class="form-group row">
                               <label for="recipeid" class="col-sm-2 col-form-label">resortname</label>
                               <div class="col-sm-10">
