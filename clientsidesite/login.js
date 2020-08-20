@@ -3,30 +3,33 @@ window.onload = function() {
     el:'#login',
     data: {
       errors:[],
-      username:'',
-      password:''
+      username:null,
+      password:null
     },
     methods: {
       Logon() {
         this.errors = [];
-          if (this.username === '') {
-              this.errors.push('Please enterusername');
+          if (!this.username) {
+              this.errors.push('Please enter username');
           }
-          if (this.password === '') {
-              this.errors.push('Please password');
+          if (!this.password) {
+              this.errors.push('Please enter password');
           }
+            if (this.username && this.password) {
+              confirm('You have succesfuly login in');
              axios.post('http://localhost:3100/login/add',
               { username: this.username,
                 password: this.password
             }).then((response) => {
               this.username = '';
               this.password = '';
-              confirm('You have succesfuly login in');
             }).catch( error => {
               console.log('error: ' + error);
             });
+          }
         }
 
       }
 });
 }
+
