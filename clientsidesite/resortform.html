@@ -1,0 +1,94 @@
+<html>
+<body>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+  body {
+     background-image: url("https://static.bhphoto.com/images/images1000x1000/1295600575_725564.jpg")
+  }
+
+  nav {
+    background-color: lightblue;
+    overflow: hidden;
+
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  li {
+    margin: 2vw;
+    font-size: 3vh;
+    list-style-type: none;
+  }
+  a {
+     font-family: sans-serif;
+     color: grey;
+     font-size: 20px;
+  }
+  input[type=text] {
+  padding:12px;
+  margin:12px 0;
+  box-sizing: border-box;
+}
+  </style>
+  <script src="vue.js"></script>
+  <script src="addresort.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+  <body>
+  <header>
+      <center>
+      <h1>More Resorts</h1>
+    </header>
+     <nav>
+       <ul>
+       <li>
+         <a href="index.html">Home</a>
+       </li>
+       <li>
+          <a href="resorts.html">Resorts</a>
+       </li>
+       <li>
+          <a href="resortform.html">Add Resort</a>
+        </li>
+        <li>
+           <a href="moreresorts.html">Resort list</a>
+        </li>
+       <li>
+       <a href="register.html">Register</a>
+       </li>
+       <li>
+         <a href="logon.html">Logon</a>
+       </li>
+       <li>
+          <a href="comments.html">Comment Section</a>
+       </li>
+     </ul>
+    </nav>
+        <div class="modal-body">
+              <form id="resortadd" method="post">
+                          <div class="form-group row">
+                              <label for="recipeid" class="col-sm-2 col-form-label">resortname</label>
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control" v-model="resortname" placeholder="resortname">
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                              <label for="foodrecipe" class="col-sm-2 col-form-label">country</label>
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control" v-model="country" placeholder="country">
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                              <label for="cooktime" class="col-sm-2 col-form-label">url</label>
+                              <div class="col-sm-10">
+                                  <input type="link" class="form-control" v-model="url" placeholder="url">
+                              </div>
+                          </div>
+                          <button @click="AdditionalR" class="btn btn-primary">Add Resort</button>
+                  </form>
+        </div>
+    </body>
+    </html>

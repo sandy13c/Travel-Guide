@@ -1,0 +1,85 @@
+<html>
+<body>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="vue.js"></script>
+  <script src="addcomment.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+ <style>
+  body {
+     background-image: url("https://previews.123rf.com/images/iunewind/iunewind1403/iunewind140300026/26543585-abstract-blue-calm-ocean-deep-travel-colorful-wave-background.jpg");
+     background-size: cover;
+  }
+
+  nav {
+    background-color: lightblue;
+    overflow: hidden;
+
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  li {
+    margin: 2vw;
+    font-size: 3vh;
+    list-style-type: none;
+  }
+  a {
+     font-family: sans-serif;
+     color: grey;
+     font-size: 20px;
+  }
+  input[type=text] {
+  padding:12px;
+  margin:12px 0;
+  box-sizing: border-box;
+}
+</style>
+  <header>
+      <center>
+      <h1>Comment Your Resort</h1>
+      <center>
+    </header>
+     <nav>
+       <ul>
+       <li>
+         <a href="index.html">Home</a>
+       </li>
+       <li>
+          <a href="resorts.html">Resorts</a>
+       </li>
+       <li>
+          <a href="resortform.html">Add Resort</a>
+        </li>
+        <li>
+           <a href="moreresorts.html">Resort list</a>
+        </li>
+       <li>
+       <a href="register.html">Register</a>
+       </li>
+       <li>
+         <a href="logon.html">Logon</a>
+       </li>
+       <li>
+          <a href="comments.html">Comment Section</a>
+       </li>
+     </ul>
+    </nav>
+    <div id="section">
+      <div class="comments">
+      <center>
+      Name: <input type="text" class="add-search-input" align="right" v-model="newName" @keyup.enter="addComment">
+      Comment: <input type="text"class="add-search-input" align="right" v-model="newComment" @keyup.enter="addComment"> <br>
+      <button class="btn btn-primary" @click="showComments">Show Comments</button>
+    </center>
+      <ol>
+        <li v-for="comment in comments">
+          {{comment.name}} - {{comment.details}}
+        </li>
+      </ol>
+    </div>
+    </div>
+  </body>
+</html>

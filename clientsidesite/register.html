@@ -1,0 +1,93 @@
+<html>
+<body>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+  body {
+     background-image: url("https://static.bhphoto.com/images/images1000x1000/1295600575_725564.jpg")
+  }
+
+  nav {
+    background-color: lightblue;
+    overflow: hidden;
+
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  li {
+    margin: 2vw;
+    font-size: 3vh;
+    list-style-type: none;
+  }
+  a {
+     font-family: sans-serif;
+     color: grey;
+     font-size: 20px;
+  }
+  input[type=text] {
+  padding:12px;
+  margin:12px 0;
+  box-sizing: border-box;
+}
+  </style>
+  <script src="vue.js"></script>
+  <script src="registerform.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+  <body>
+  <header>
+      <center>
+      <h1>Register</h1>
+    </header>
+     <nav>
+       <ul>
+       <li>
+         <a href="index.html">Home</a>
+       </li>
+       <li>
+          <a href="resorts.html">Resorts</a>
+       </li>
+       <li>
+          <a href="resortform.html">Add Resort</a>
+        </li>
+       <li>
+       <a href="register.html">Register</a>
+       </li>
+       <li>
+          <a href="moreresorts.html">Resort list</a>
+       </li>
+       <li>
+         <a href="logon.html">Logon</a>
+       </li>
+       <li>
+          <a href="comments.html">Comment Section</a>
+       </li>
+
+     </ul>
+    </nav>
+
+    <form id="registeration"  method="post">
+      <p v-if=errors.length>
+       <ul>
+           <li v-for="error in errors">{{error}}</li>
+       </ul>
+      </p>
+      <label for="firstname">Firstname</label>
+      <input type="text"  name="name" v-model="first_name"> <br>
+      <label for="lastname">Lastname</label>
+      <input type="text"  name="lastname" v-model="last_name"> <br>
+      <label for="username">Username</label>
+      <input type="text"  name="username" v-model="user_name"> <br>
+      <label for="firstname">Password</label>
+      <input type="text" name="password" v-model="password"> <br>
+      <label for="confirmpassword">Confirm</label>
+      <input type="text"  name="confirmpassword" v-model="confirmpassword"> <br>
+
+      <p>
+        <button v-on:click="Register"class="btn btn-danger">register</button>
+      </p>
+    </form>
+</body>
+</html>
